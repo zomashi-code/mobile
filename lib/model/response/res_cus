@@ -1,0 +1,37 @@
+import 'dart:convert';
+
+ResCus resCusFromJson(String str) => ResCus.fromJson(json.decode(str));
+
+String resCusToJson(ResCus data) => json.encode(data.toJson());
+
+class ResCus {
+    int idx;
+    String fullname;
+    String phone;
+    String email;
+    String image;
+
+    ResCus({
+        required this.idx,
+        required this.fullname,
+        required this.phone,
+        required this.email,
+        required this.image,
+    });
+
+    factory ResCus.fromJson(Map<String, dynamic> json) => ResCus(
+        idx: json["idx"],
+        fullname: json["fullname"],
+        phone: json["phone"],
+        email: json["email"],
+        image: json["image"],
+    );
+
+    Map<String, dynamic> toJson() => {
+        "idx": idx,
+        "fullname": fullname,
+        "phone": phone,
+        "email": email,
+        "image": image,
+    };
+}
